@@ -1,5 +1,9 @@
+from typing import Any, Union
+from PIL import Image
 
-from app.repository import classifier_repository
+from app.models.schemas.classifier import ClassifierResponseSchema
 
-async def get_image_classification():
-    return classifier_repository.get_classification()
+imageType = Union[Image.Image, Any]
+
+async def get_image_classification(image: imageType)-> ClassifierResponseSchema:
+    pass

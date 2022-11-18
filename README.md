@@ -31,14 +31,11 @@ ml-server/
 ├── Pipfile
 ├── README.md
 ├── app
-│   ├── api
 │   ├── app.py
 │   ├── models
 │   │   ├── response.py
 │   │   └── schemas
 │   │       └── classifier.py
-│   ├── repository
-│   │   └── classifier_repository.py
 │   ├── services
 │   │   └── classifier_services.py
 │   └── utils
@@ -56,7 +53,7 @@ ml-server/
 - `main.py`. To execute the API and expose the service
 - `mlmodels/`. To store the trained machine learning model. The api must load the model from this path.
 - `tests/`. To test the api
-- `app/`. Contains all the structure of the api.This app follows an N-layer structure where the direct interaction/inference with the Machine learning model is done in the `repository/` layer. 
+- `app/`. Contains all the structure of the api.This app follows an N-layer structure where the direct interaction/inference with the Machine learning model is done in the `service/` layer. 
 
 Some observations:
 

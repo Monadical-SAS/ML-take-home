@@ -1,6 +1,6 @@
 import pytest
-from httpx import AsyncClient
 from fastapi.testclient import TestClient
+from httpx import AsyncClient
 
 from app.app import app
 
@@ -13,5 +13,5 @@ def app_client():
 
 @pytest.fixture
 async def async_app_client():
-    async with AsyncClient(app=app, base_url='https://servertest') as client:
+    async with AsyncClient(app=app, base_url="https://servertest") as client:
         yield client

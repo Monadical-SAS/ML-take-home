@@ -1,10 +1,13 @@
+import io
 import time
+from typing import Union
 
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from PIL import Image
 
-from models.response import ResponseModel
-
+from app.models.response import ResponseModel
+from app.services.classifier import ImageClassifier
 
 app = FastAPI()
 
@@ -20,22 +23,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Load the model
+Classifier = ImageClassifier()
+
 
 @app.get("/", tags=["Root"])
 async def read_root():
-    return {"message": f"Welcome to the image classifier server!! , servertime {time.time()}"}
-
-@app.get("/classify", tags=["Image Classification"])
-async def classify():
-    # Write your code here
-    
-    # Response mockup
-    # You can delete this and adapt it to your needs.
-    fakeresponse = {
-        "message": "",
-        "success": True,
-        "data": {"label":"some label", "score": 0.89456}
+    return {
+        "message": f"Welcome to the image classifier server!! , servertime {time.time()}"
     }
 
-    return ResponseModel(**fakeresponse)
-    
+
+@app.post("/classify", tags=["Image Classification"])
+async def classify(file: Union[UploadFile, None] = None):
+    if not file:
+        return ResponseModel(message="No upload file sent", success=False)
+
+    content = await file.read()
+    image = Image.open(io.BytesIO(content))
+    result = Classifier.predict(image)
+
+    return ResponseModel(data=result, message="Successful classification")

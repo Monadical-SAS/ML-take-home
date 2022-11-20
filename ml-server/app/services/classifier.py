@@ -1,4 +1,4 @@
-from typing import Any, Union
+from typing import Any, List, Union
 
 from PIL import Image
 from transformers import pipeline
@@ -14,6 +14,6 @@ class ImageClassifier:
     def __init__(self):
         self.classifier = pipeline("image-classification", model=MODEL_NAME)
 
-    def predict(self, image: imageType) -> ClassifierResponseSchema:
+    def predict(self, image: imageType) -> List[ClassifierResponseSchema]:
         result = self.classifier(image)
-        return result[0]
+        return result

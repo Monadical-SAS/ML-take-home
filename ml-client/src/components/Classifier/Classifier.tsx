@@ -7,7 +7,7 @@ function Classifier() {
   return (
     <>
       <NavBar />
-      <div className="flex flex-col bg-slate-200 w-full h-[82vh]">
+      <div className="flex flex-col bg-slate-200 w-full h-screen">
         <h1 className="flex text-6xl font-open-sans font-medium text-sky-700 my-8 justify-center">
           Image classifier
         </h1>

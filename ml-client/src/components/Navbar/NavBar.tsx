@@ -2,7 +2,7 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <nav className="bg-gray-700 border-gray-200 px-2 sm:px-4 py-2.5  h-[9vh]">
+    <nav className="bg-gray-700 border-gray-200 px-2 sm:px-4 py-2.5 ">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <a href="https://flowbite.com/" className="flex items-center">
           <img
@@ -22,7 +22,7 @@ const NavBar = () => {
           <ul className="flex flex-col p-4 mt-4 bg-gray-700 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
             <li>
               <a
-                href="#"
+                href="https://monadical.com/principles.html"
                 className="text-lg font-bold block py-2 pl-3 pr-4 text-white rounded md:bg-transparent hover:underline decoration-2 underline-offset-8 md:p-0"
                 aria-current="page"
               >
@@ -31,7 +31,7 @@ const NavBar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="https://monadical.com/team.html"
                 className="text-lg font-bold block py-2 pl-3 pr-4 text-white rounded md:bg-transparent hover:underline decoration-2 underline-offset-8 md:p-0"
               >
                 Team
@@ -39,7 +39,7 @@ const NavBar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="https://monadical.com/blog.html"
                 className="text-lg font-bold block py-2 pl-3 pr-4 text-white rounded md:bg-transparent hover:underline decoration-2 underline-offset-8 md:p-0"
               >
                 Blog
@@ -47,7 +47,7 @@ const NavBar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="https://monadical.com/about.html"
                 className="text-lg font-bold block py-2 pl-3 pr-4 text-white rounded md:bg-transparent hover:underline decoration-2 underline-offset-8 md:p-0"
               >
                 About

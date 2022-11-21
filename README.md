@@ -1,5 +1,5 @@
-# ML-take-home
-Template for Machine Learning take home project
+# ML Take Home
+Template for Machine Learning take home project.
 
 
 ## Description

@@ -1,0 +1,28 @@
+@use "../../styles/colors";
+
+.footer-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background: colors.$secondary-color !important;
+  color: white;
+
+  &.primary {
+    background-color: transparent;
+  }
+
+  p {
+    margin: 0 12px;
+  }
+
+  a {
+    margin: 0 12px;
+    text-decoration: underline;
+
+    &:first-of-type {
+      margin: 6px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .navbar-container {
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+  }
+
+  .classifier-content {
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    overflow-y: auto;
+  }
+
+  .footer-container {
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,64 @@
+@use "colors";
+
+%button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  user-select: none;
+  transition: all .1s ease-in;
+  border: none;
+  text-shadow: none;
+}
+
+%disabled {
+  &.disabled {
+    background-color: colors.$grey-color;
+    cursor: not-allowed;
+  }
+}
+
+.button-submit {
+  @extend %button;
+  font-size: 16px;
+  line-height: 16px;
+  width: auto;
+  min-width: 150px;
+  height: 38px;
+  padding: 12px;
+  background-image: colors.$linear-gradiant-1;
+  color: colors.$white-color;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    box-shadow: 2px 2px 2px colors.$secondary-color;
+    text-shadow: 2px 2px 2px colors.$secondary-color;
+  }
+
+  span {
+    margin-right: 8px;
+  }
+
+  &.disabled {
+    background-color: colors.$disabled-color;
+    cursor: not-allowed;
+  }
+
+  &.secondary {
+    color: colors.$main-color;
+    border: 2px solid colors.$main-color;
+    background: white !important;
+
+    &:hover {
+      box-shadow: none;
+      text-shadow: none;
+      background-image: colors.$radial-gradient-1 !important;
+      color: white;
+    }
+  }
+}

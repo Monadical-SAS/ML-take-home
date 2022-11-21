@@ -37,7 +37,7 @@ async def read_root():
 @app.post("/classify", tags=["Image Classification"])
 async def classify(file: Union[UploadFile, None] = None):
     if not file:
-        return ResponseModel(message="No upload file sent", success=False)
+        return ResponseModel(message="No file sent", success=False)
 
     content = await file.read()
     image = Image.open(io.BytesIO(content))

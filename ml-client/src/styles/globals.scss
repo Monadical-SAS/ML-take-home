@@ -1,0 +1,48 @@
+@use "buttons";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../../public/images/octopus-06.png");
+    background-position: 60%;
+    background-size: cover;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    z-index: 0;
+  }
+}
+
+h1 {
+  color: white;
+  -webkit-text-stroke: 2px black;
+  font-size: 3rem;
+  font-family: "Impact", sans-serif;
+  text-align: center;
+  margin: 24px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

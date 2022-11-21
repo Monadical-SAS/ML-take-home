@@ -1,13 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.scss";
+import "./styles/globals.scss";
 
-import  Classifier  from './components/Classifier/Classifier';
+import MainContainer from "./components/MainContainer/MainContainer";
 
 function App() {
-  return (
-      <Classifier/>
-  );
+  return <MainContainer />;
 }
 
 export default App;

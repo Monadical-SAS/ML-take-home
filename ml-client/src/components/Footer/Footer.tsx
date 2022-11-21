@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="p-4 shadow md:flex md:items-center md:justify-between md:p-6 bg-gray-800 h-[9vh]">
+    <footer className="p-4 shadow md:flex md:items-center md:justify-between md:p-6 bg-gray-800">
       <span className="text-white text-xl">
         Made with love &#9829; by the {" "}
         <a href="https:monadical.com" className="underline">

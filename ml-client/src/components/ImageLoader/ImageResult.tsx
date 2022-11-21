@@ -9,7 +9,7 @@ const ImageResult = ({ image, results }: IImageResult) => {
   return (
     <>
       <h2 className="text-4xl mt-10 mb-5 text-slate-600 ">Result</h2>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 m-4">
         <img
           className="h-full w-full rounded-md"
           src={URL.createObjectURL(image)}

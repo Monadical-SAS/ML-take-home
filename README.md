@@ -10,8 +10,6 @@ The purpose of this project is to implement an image classifier that allows to d
  - Implement the necessary changes in the frontend(if it's required) that allows you to upload an image and by means of the classifier, determine the health status of the plant/leaves. 
  - Implement  the necessary changes in the  REST API which run the machine learning model. 
 
-The project already runs a model trained (you can download it from [here]()) with this dataset, so that you can visualize how it works. For the training we used HuggingFace Transformers but you are free to select the tool you want to work with.
-
 The dataset contains a set of images separated into three folders according to their classification (`Healthy`,`Early Blight`,`Late Blight`) and in turn they are divided into three folders `Training`, `Testing` and `Validation`. For example:
 
 **Healthy**
@@ -26,7 +24,7 @@ The dataset contains a set of images separated into three folders according to t
 
 ![](./images/Late_Blight_3.jpg)
 
-With the frontend you can upload an image and get its classification using the trained machine learning model:
+With the frontend you can upload an image and get its classification using the trained machine learning model. It should look something like this 
 
 ![](./images/frontend.png)
 
@@ -109,7 +107,7 @@ ml-server/
 
 Some observations:
 
-- You are free to choose the tool for training: Tensorflow, Pytorch, Keras, Transformers. However, we recommend you to use this model `google/vit-base-patch16-224-in21k`, in order to start from a pre-trained network and to be able to do transfer-learning.
+- For the training we used HuggingFace Transformers but you are free to select the tool you want to work with: Tensorflow, Pytorch, Keras, Transformers. However, we recommend you to use this model `google/vit-base-patch16-224-in21k`, in order to start from a pre-trained network and to be able to do transfer-learning.
 - For training you can make use of google collaboratory which allows you to make use of a gpu machine in case you don't have one. In that case, we recommend you to upload the notebook as well as to structure well its content so you can copy and paste it into the train.py file. The idea is that the training can be done through this script for further training.
 - You can add additional files to the REST API to complete your implementation,especially if you use a tool other than transformers. You will probably need to adapt it to the server
 

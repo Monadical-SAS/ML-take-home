@@ -74,6 +74,16 @@ The project has the following structure:
 You probably don't need to modify anything in the frontend, but you are free to add new functionalities or implement a
 new one in case you need it.
 
+## Running the client
+
+```shell
+# Install dependencies
+npm install
+
+# Run the client
+npm run start
+```
+
 ## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -81,6 +91,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install the dependencies for the project.
 
 ### `npm start`
 

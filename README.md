@@ -44,6 +44,7 @@ The project has three implementations: Frontend, Backend and Machine Learning ta
  The frontend was implemented using React with Typescript and SASS as CSS preprocessor. Basically it has the following structure:
 
  ```
+.
 ├── README.md
 ├── package-lock.json
 ├── package.json
@@ -51,25 +52,40 @@ The project has three implementations: Frontend, Backend and Machine Learning ta
 ├── public
 │   ├── ...
 ├── src
-│   ├── App.css
 │   ├── App.test.tsx
 │   ├── App.tsx
 │   ├── components
 │   │   ├── Classifier
-│   │   │   └── Classifier.tsx
+│   │   │   ├── Classifier.tsx
+│   │   │   └── classifier.scss
 │   │   ├── Footer
-│   │   │   └── Footer.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── footer.scss
 │   │   ├── ImageLoader
 │   │   │   ├── ImageLoader.tsx
-│   │   │   └── ImageResult.tsx
-│   │   └── Navbar
-│   │       └── NavBar.tsx
-│   ├── index.css
+│   │   │   └── imageLoader.scss
+│   │   ├── Loader
+│   │   │   ├── Loader.tsx
+│   │   │   └── loader.scss
+│   │   ├── MainContainer
+│   │   │   ├── MainContainer.tsx
+│   │   │   └── mainContainer.scss
+│   │   ├── Navbar
+│   │   │   ├── Navbar.tsx
+│   │   │   └── navbar.scss
+│   │   └── Results
+│   │       ├── Results.tsx
+│   │       └── results.scss
+│   ├── index.scss
 │   ├── index.tsx
 │   ├── logo.svg
 │   ├── react-app-env.d.ts
 │   ├── reportWebVitals.ts
-│   └── setupTests.ts
+│   ├── setupTests.ts
+│   └── styles
+│       ├── _buttons.scss
+│       ├── _colors.scss
+│       └── globals.scss
 ├── tailwind.config.js
 └── tsconfig.json
  ```
@@ -99,7 +115,8 @@ ml-server/
 ├── run.sh
 ├── tests
 │   ├── conftest.py
-│   └── test_base.py
+│   ├── test_base.py
+│   └── test_image.jpeg
 └── train.py
 ```
 

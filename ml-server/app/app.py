@@ -30,7 +30,7 @@ Classifier = ImageClassifier()
 @app.get("/", tags=["Root"])
 async def read_root():
     return {
-        "message": f"Welcome to the image classifier server!! , servertime {time.time()}"
+        "message": f"Welcome to the image classifier server!!, servertime {time.time()}"
     }
 
 

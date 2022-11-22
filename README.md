@@ -1,16 +1,40 @@
 # ML Take Home
+
 Template for Machine Learning take home project.
+This project is a full stack implementation around a machine learning model to image classification.
+It offers the user the possibility to test the model by uploading an image, getting the classification result, and
+displaying both the image and the results in a friendly way.
 
+## Take Home
 
-## Description
+This repository is intended to serve as a basis for the implementation of an image classifier system.  
+The resulting system will allow to determine the health status of a potato plant according to the state of its leaves.
+To do so, the applicant must complete the following tasks:
 
-The purpose of this project is to implement an image classifier that allows to determine the health status of a potato plant according to the state of its leaves. The idea is that **using a dataset that you can find in this repository you must do the following**:
+### Mandatory Tasks
 
- - Train an image classification model. You can use a Jupyter notebook but the code must also go in the `train.py` file. 
- - Implement the necessary changes in the frontend(if it's required) that allows you to upload an image and by means of the classifier, determine the health status of the plant/leaves. 
- - Implement  the necessary changes in the  REST API which run the machine learning model. 
+- [ ] select a machine learning model to classify images
+- we recommend you to use the `google/vit-base-patch16-224-in21k` model (it'll automatically be downloaded when you run
+  the `main.py` script), but you are free to use any other model you want
+- [ ] fine-tune the selected model on [the provided dataset](./dataset) so that it can classify potatoes health status
+- write the resulting code in the `train.py` file
+- save the resulting model in the `mlmodels` folder
+- update the `classifier.py` service to load the model if required
+- [ ] use the fine-tuned model to classify potatoes leaves
+- [ ] run the backend tests and make sure they pass
 
-The dataset contains a set of images separated into three folders according to their classification (`Healthy`,`Early Blight`,`Late Blight`) and in turn they are divided into three folders `Training`, `Testing` and `Validation`. For example:
+### Optional tasks
+
+- [ ] allow to upload and analyze multiple images at once
+- [ ] dockerize the application
+- [ ] deploy the application in a cloud provider
+- [ ] add a new ML functionality to the application
+
+## Dataset
+
+The dataset contains a set of images separated into three folders according to their classification (`Healthy`
+,`Early Blight`,`Late Blight`) and in turn they are divided into three folders `Training`, `Testing` and `Validation`.
+For example:
 
 **Healthy**
 
@@ -24,7 +48,10 @@ The dataset contains a set of images separated into three folders according to t
 
 ![](./images/Late_Blight_3.jpg)
 
-With the frontend you can upload an image and get its classification using the trained machine learning model. It should look something like this 
+## Using the client
+
+With the frontend you can upload an image and get its classification using the trained machine learning model.
+The final results should look something like this:
 
 **upload the image**
 ![](./images/frontend.png)
@@ -32,104 +59,24 @@ With the frontend you can upload an image and get its classification using the t
 **classification results**
 ![](./images/frontend2.png)
 
-## Structure
+## Project Structure
 
-The project has three implementations: Frontend, Backend and Machine Learning tasks. Therefore it has two folders for that purpose:
+This project consists of a python backend to expose the machine learning services and a React client to consume them.
+The project structure is as follows:
 
- - **ml-client**. It contains all related with the frontend.
- - **ml-server**. It contains all related with the backend service and machine learning pipeline
+- [**ml-client**](./ml-client): Frontend implementation and docs.
+- [**ml-server**](./ml-server): Backend implementation and docs.
 
- ### Frontend
+## Some observations:
 
- The frontend was implemented using React with Typescript and SASS as CSS preprocessor. Basically it has the following structure:
-
- ```
-.
-├── README.md
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── public
-│   ├── ...
-├── src
-│   ├── App.test.tsx
-│   ├── App.tsx
-│   ├── components
-│   │   ├── Classifier
-│   │   │   ├── Classifier.tsx
-│   │   │   └── classifier.scss
-│   │   ├── Footer
-│   │   │   ├── Footer.tsx
-│   │   │   └── footer.scss
-│   │   ├── ImageLoader
-│   │   │   ├── ImageLoader.tsx
-│   │   │   └── imageLoader.scss
-│   │   ├── Loader
-│   │   │   ├── Loader.tsx
-│   │   │   └── loader.scss
-│   │   ├── MainContainer
-│   │   │   ├── MainContainer.tsx
-│   │   │   └── mainContainer.scss
-│   │   ├── Navbar
-│   │   │   ├── Navbar.tsx
-│   │   │   └── navbar.scss
-│   │   └── Results
-│   │       ├── Results.tsx
-│   │       └── results.scss
-│   ├── index.scss
-│   ├── index.tsx
-│   ├── logo.svg
-│   ├── react-app-env.d.ts
-│   ├── reportWebVitals.ts
-│   ├── setupTests.ts
-│   └── styles
-│       ├── _buttons.scss
-│       ├── _colors.scss
-│       └── globals.scss
-├── tailwind.config.js
-└── tsconfig.json
- ```
-
-You probably don't need to modify anything in the frontend but you are free to add new functionalities or implement a new one in case you need it.
-
- ### Backend
-
-REST API implemented with FastAPI with which you can expose the Machine Learning service for image classification. It consists of the following:
-
-```
-ml-server/
-├── Pipfile
-├── README.md
-├── app
-│   ├── app.py
-│   ├── models
-│   │   ├── response.py
-│   │   └── schemas
-│   │       └── classifier.py
-│   ├── services
-│   │   └── classifier.py
-│   └── utils
-│       └── strings.py
-├── main.py
-├── mlmodels
-├── run.sh
-├── tests
-│   ├── conftest.py
-│   ├── test_base.py
-│   └── test_image.jpeg
-└── train.py
-```
-
-- `train.py`: file that must contain everything related to the training of the machine learning model. 
-- `main.py`. To execute the API and expose the service
-- `mlmodels/`. To store the trained machine learning model. The api must load the model from this path.
-- `tests/`. To test the api
-- `app/`. Contains all the structure of the api.This app follows an N-layer structure where the direct interaction/inference with the Machine learning model is done in the `service/` layer. 
-
-Some observations:
-
-- For the training we used HuggingFace Transformers but you are free to select the tool you want to work with: Tensorflow, Pytorch, Keras, Transformers. However, we recommend you to use this model `google/vit-base-patch16-224-in21k`, in order to start from a pre-trained network and to be able to do transfer-learning.
-- For training you can make use of google collaboratory which allows you to make use of a gpu machine in case you don't have one. In that case, we recommend you to upload the notebook as well as to structure well its content so you can copy and paste it into the train.py file. The idea is that the training can be done through this script for further training.
-- You can add additional files to the REST API to complete your implementation,especially if you use a tool other than transformers. You will probably need to adapt it to the server
+- For the training we used HuggingFace Transformers, but you are free to select the tool you want to work with:
+  Tensorflow, Pytorch, Keras, Transformers.
+- We recommend you to use the `google/vit-base-patch16-224-in21k` model or similar, in order to start from a pre-trained
+  network and to be able to do transfer-learning.
+- You can make use of google collaboratory for training the model in case you don't have GPU power and require it. In
+  that case, we recommend you to upload the notebook in a separate file and to move the equivalent python code into
+  the `train.py`file.
+- You can add additional files to the REST API to complete your implementation if required, especially if you use a tool
+  other than transformers. You will probably need to adapt it to the server
 
 

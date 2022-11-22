@@ -41,7 +41,7 @@ The project has three implementations: Frontend, Backend and Machine Learning ta
 
  ### Frontend
 
- The frontend was implemented using React with Typescript and Tailwind as CSS framework. Basically it has the following structure:
+ The frontend was implemented using React with Typescript and SASS as CSS preprocessor. Basically it has the following structure:
 
  ```
 ├── README.md

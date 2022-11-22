@@ -26,7 +26,11 @@ The dataset contains a set of images separated into three folders according to t
 
 With the frontend you can upload an image and get its classification using the trained machine learning model. It should look something like this 
 
+**upload the image**
 ![](./images/frontend.png)
+
+**classification results**
+![](./images/frontend2.png)
 
 ## Structure
 

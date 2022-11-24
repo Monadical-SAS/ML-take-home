@@ -64,6 +64,7 @@ python3 main.py
 To run the tests
 ```shell
 # Running the tests
+cd tests
 pytest
 ```
 
